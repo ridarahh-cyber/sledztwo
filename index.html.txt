@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Liceum Ogólnokształcące - Strona Oficjalna (1999)</title>
+
+<style>
+  /* Ogólny retro look: tła przypominające mozaikę, ramki, serif */
+  body {
+    margin: 0;
+    font-family: "Times New Roman", Times, serif;
+    background:
+      linear-gradient(45deg, #e6f0ff 25%, transparent 25%) -10px 0,
+      linear-gradient(-45deg, #e6f0ff 25%, transparent 25%) -10px 0,
+      linear-gradient(45deg, transparent 75%, #f7fbff 75%),
+      linear-gradient(-45deg, transparent 75%, #f7fbff 75%);
+    background-size: 20px 20px;
+    background-color: #f7fbff;
+    color: #002244;
+    font-size: 16px;
+  }
+
+  /* Stare-school centralna ramka (tablica) */
+  .page {
+    width: 980px;
+    margin: 18px auto;
+    border: 5px double #214a7c;
+    background: #ffffff;
+    box-shadow: 6px 6px 0 rgba(0,0,0,0.08);
+  }
+
+  header {
+    background: linear-gradient(#003366, #0b5aa6);
+    color: #fff;
+    padding: 12px 16px;
+    display:flex;
+    align-items:center;
+  }
+
+  header img.logo {
+    width: 96px;
+    height: 96px;
+    background: repeating-linear-gradient(45deg,#fff 0 4px,#eee 4px 8px);
+    border: 3px solid #ffffff;
+    margin-right: 14px;
+    box-shadow: 1px 1px 0 rgba(0,0,0,0.2);
+  }
+
+  header h1 {
+    margin: 0;
+    font-size: 28px;
+    letter-spacing: 1px;
+  }
+  header p.subtitle {
+    margin: 0;
+    font-size: 12px;
+    opacity: 0.9;
+  }
+
+  /* klasyczne menu boczne z tabeli */
+  .content {
+    display: flex;
+  }
+
+  nav {
+    width: 220px;
+    background: #e8f2ff;
+    border-right: 2px solid #d0e4ff;
+    padding: 8px;
+  }
+
+  nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  nav li {
+    margin: 8px 0;
+  }
+
+  nav a {
+    display:block;
+    text-decoration: none;
+    color: #003366;
+    background: linear-gradient(#fff,#e6f3ff);
+    border: 1px solid #c7dcff;
+    padding: 8px;
+    font-weight: bold;
+  }
+
+  nav a:hover {
+    background: linear-gradient(#d9ecff,#ffffff);
+  }
+
+  main {
+    padding: 12px;
+    flex: 1;
+  }
+
+  /* news box */
+  .news {
+    border: 2px dashed #c7dcff;
+    padding: 10px;
+    margin-bottom: 12px;
+    background: #fbfeff;
+  }
+
+  .sidebar-widgets {
+    margin-top: 10px;
+    padding: 8px;
+    border-top: 1px dashed #c7dcff;
+    font-size: 14px;
+  }
+
+  /* retro button */
+  .btn {
+    display:inline-block;
+    padding:6px 10px;
+    border:2px outset #c7dcff;
+    background:linear-gradient(#f0f8ff,#d8ecff);
+    color:#003366;
+    text-decoration:none;
+    font-weight:bold;
+  }
+
+  /* "animated gif" placeholder - CSS only */
+  .gifbox {
+    width: 160px;
+    height: 120px;
+    display:inline-block;
+    border: 2px solid #ddd;
+    background:
+      linear-gradient(45deg, rgba(255,255,255,0.6) 25%, transparent 25%),
+      linear-gradient(-45deg, rgba(255,255,255,0.6) 25%, transparent 25%);
+    background-size: 20px 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .gifbox::after {
+    content: "GIF";
+    position:absolute;
+    left:8px; top:8px;
+    font-weight:bold;
+    color:#003366;
+    text-shadow:1px 1px 0 #fff;
+  }
+
+  /* retro tables */
+  table.info {
+    width:100%;
+    border-collapse: collapse;
+  }
+  table.info th, table.info td {
+    padding: 8px;
+    border: 1px solid #cfe7ff;
+    text-align:left;
+  }
+  table.info th {
+    background:#e6f3ff;
+  }
+
+  /* guestbook */
+  .guestbook {
+    margin-top: 12px;
+    border-top: 2px solid #c7dcff;
+    padding-top: 8px;
+  }
+  .entry {
+    border-bottom:1px dotted #cfe7ff;
+    padding:6px 0;
+  }
+
+  footer {
+    background:#f1f7ff;
+    padding:10px;
+    font-size:13px;
+    border-top:4px double #cfe7ff;
+    text-align:center;
+  }
+
+  /* Blinking star (very 90s) */
+  .blink { animation: blink 1.2s steps(2) infinite; }
+  @keyframes blink { 50% { opacity: 0.0; } }
+  
+  /* small screens */
+  @media (max-width: 1024px){
+    .page { width: 95%; }
+    nav { width: 160px; }
+    header h1 { font-size: 20px; }
+  }
+</style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="logo" aria-hidden="true">
+        <img class="logo" alt="Logo Liceum" src="" />
+      </div>
+      <div>
+        <h1>Liceum Ogólnokształcące nr 19</h1>
+        <p class="subtitle">Szkoła z tradycjami — witaj na oficjalnej stronie (retro edition)</p>
+      </div>
+    </header>
+
+    <!-- classic marquee -->
+    <div style="padding:8px 12px; background:#fffbe6; border-bottom:1px solid #ffe8a8;">
+      <marquee behavior="scroll" direction="left" scrollamount="4">
+        UWAGA: Zapisy na Dzień Otwarty! &nbsp; &nbsp; | &nbsp; &nbsp; Nowy numer gazetki szkolnej już dostępny! &nbsp;
+        | &nbsp; &nbsp; Konkurs matematyczny - zapisy do 15 maja.
+      </marquee>
+    </div>
+
+    <div class="content">
+      <nav>
+        <ul>
+          <li><a href="#home">Strona główna</a></li>
+          <li><a href="#news">Aktualności</a></li>
+          <li><a href="#staff">Nauczyciele</a></li>
+          <li><a href="#timetable">Plan Lekcji</a></li>
+          <li><a href="#gallery">Galeria</a></li>
+          <li><a href="#guestbook">Księga gości</a></li>
+          <li><a href="#downloads">Do pobrania</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+
+        <div class="sidebar-widgets">
+          <div><strong>Przydatne:</strong></div>
+          <div style="margin-top:8px;">
+            <div class="gifbox" title="Obrazek szkolny"></div>
+            <div style="margin-top:8px;">
+              <div>Wyszukaj:</div>
+              <form onsubmit="alert('search deprecated in retro demo'); return false;">
+                <input type="text" placeholder="Szukaj..." style="width:100%; box-sizing:border-box; padding:6px; margin-top:6px;">
+              </form>
+            </div>
+          </div>
+          <div style="margin-top:10px;">
+            <strong>Gości online:</strong>
+            <div id="visitorCount">Ładowanie...</div>
+          </div>
+        </div>
+      </nav>
+
+      <main>
+        <section id="home" class="news">
+          <h2>Witamy na stronie Liceum nr 19</h2>
+          <p>Ta witryna została zaprojektowana w klimacie końca XX wieku — ukłony dla GeoCities, dial-up i chaotycznych tabel. Znajdziesz tu informacje o szkole, kadrze oraz archiwum szkolnych wydarzeń.</p>
+
+          <p><strong class="blink">Nowość:</strong> Zapisz się na newsletter (to tylko demonstracja)</p>
+
+          <table class="info" style="margin-top:10px;">
+            <tr><th>Godziny pracy</th><td>Pon-Pt 8:00 - 16:00</td></tr>
+            <tr><th>Adres</th><td>ul. Pamiętna 19, 00-000 Miasto</td></tr>
+            <tr><th>Telefon</th><td>(000) 111-222</td></tr>
+          </table>
+        </section>
+
+        <section id="news" style="margin-top:12px;">
+          <h3>Aktualności</h3>
+          <div>
+            <article style="padding:8px; border:1px solid #e3f0ff; margin-bottom:8px;">
+              <strong>15.05.1999 — </strong>Rozpoczynamy zapisy do konkursu matematycznego. Zgłoszenia do sekretariatu.
+            </article>
+            <article style="padding:8px; border:1px solid #e3f0ff;">
+              <strong>01.05.1999 — </strong>Nowy numer gazetki szkolnej "Echo Liceum" — do pobrania w sekcji <a href="#downloads">Do pobrania</a>.
+            </article>
+          </div>
+        </section>
+
+        <section id="staff" style="margin-top:12px;">
+          <h3>Kadra nauczycielska</h3>
+          <table class="info">
+            <tr><th>Imię i nazwisko</th><th>Przedmiot</th></tr>
+            <tr><td>Prof. Anna Kowalska</td><td>Język polski</td></tr>
+            <tr><td>Dr Jan Nowak</td><td>Matematyka</td></tr>
+            <tr><td>Mgr Ewa Zielińska</td><td>Biologia</td></tr>
+          </table>
+        </section>
+
+        <section id="timetable" style="margin-top:12px;">
+          <h3>Przykładowy plan lekcji</h3>
+          <table class="info">
+            <tr><th>Godzina</th><th>Poniedziałek</th><th>Wtorek</th></tr>
+            <tr><td>8:00 - 8:45</td><td>J. polski</td><td>Matematyka</td></tr>
+            <tr><td>8:55 - 9:40</td><td>Historia</td><td>WF</td></tr>
+            <tr><td>9:50 - 10:35</td><td>Biologia</td><td>J. angielski</td></tr>
+          </table>
+        </section>
+
+        <section id="gallery" style="margin-top:12px;">
+          <h3>Galeria (retro)</h3>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <div style="width:180px; border:1px solid #ccc; padding:6px;">
+              <div style="height:100px; background:#f3f3f3; display:flex; align-items:center; justify-content:center;">Zdjęcie 1</div>
+              <div style="margin-top:6px; font-size:13px;">Jasełka 1998</div>
+            </div>
+            <div style="width:180px; border:1px solid #ccc; padding:6px;">
+              <div style="height:100px; background:#f3f3f3; display:flex; align-items:center; justify-content:center;">Zdjęcie 2</div>
+              <div style="margin-top:6px; font-size:13px;">Wyprawa klasowa</div>
+            </div>
+            <div style="width:180px; border:1px solid #ccc; padding:6px;">
+              <div style="height:100px; background:#f3f3f3; display:flex; align-items:center; justify-content:center;">Zdjęcie 3</div>
+              <div style="margin-top:6px; font-size:13px;">Koncert szkolny</div>
+            </div>
+          </div>
+        </section>
+
+        <section id="guestbook" class="guestbook">
+          <h3>Księga gości</h3>
+          <form id="gbForm" onsubmit="return addEntry();">
+            <div>
+              <input id="gbName" placeholder="Twoje imię" style="padding:6px; width:200px;">
+              <input id="gbMessage" placeholder="Wiadomość" style="padding:6px; width:420px;">
+              <button class="btn" type="submit">Dodaj wpis</button>
+            </div>
+          </form>
+
+          <div id="entries" style="margin-top:10px;">
+            <!-- wpisy pojawią się tutaj -->
+          </div>
+        </section>
+
+        <section id="downloads" style="margin-top:12px;">
+          <h3>Do pobrania</h3>
+          <ul>
+            <li><a href="#" class="btn" onclick="alert('Pobieranie demo...'); return false;">Gazetka szkolna (PDF)</a></li>
+            <li><a href="#" class="btn" onclick="alert('Pobieranie demo...'); return false;">Regulamin konkursu</a></li>
+          </ul>
+        </section>
+
+        <section id="kontakt" style="margin-top:12px;">
+          <h3>Kontakt</h3>
+          <p>Sekretariat: sekretariat@liceum19.example.pl</p>
+          <p>Telefon: (000) 111-222</p>
+        </section>
+
+      </main>
+    </div>
+
+    <footer>
+      <div>Witryna stworzona w stylu lat 90/2000 — demonstracja. | <em>ostatnia aktualizacja: 15.05.1999</em></div>
+      <div style="margin-top:6px;">Licznik odwiedzin: <span id="hits">0</span></div>
+    </footer>
+  </div>
+
+<script>
+  // Prosty "licznik odwiedzin" (localStorage)
+  (function(){
+    try {
+      var hits = localStorage.getItem('retro_hits') || 0;
+      hits = Number(hits) + 1;
+      localStorage.setItem('retro_hits', hits);
+      document.getElementById('hits').textContent = hits;
+    } catch(e) {
+      document.getElementById('hits').textContent = '---';
+    }
+  })();
+
+  // "Goście online" (losowa symulacja)
+  (function(){
+    var el = document.getElementById('visitorCount');
+    function update() {
+      var n = 1 + Math.floor(Math.random()*8);
+      el.textContent = n + ' odwiedzających';
+    }
+    update();
+    setInterval(update, 5000);
+  })();
+
+  // Prosta księga gości (localStorage)
+  function renderEntries() {
+    var container = document.getElementById('entries');
+    container.innerHTML = '';
+    var data = JSON.parse(localStorage.getItem('retro_guestbook') || '[]');
+    if (data.length === 0) {
+      container.innerHTML = '<p>Brak wpisów. Bądź pierwszy!</p>';
+      return;
+    }
+    data.slice().reverse().forEach(function(e){
+      var div = document.createElement('div');
+      div.className = 'entry';
+      div.innerHTML = '<strong>' + escapeHtml(e.name) + '</strong> <em>(' + e.time + ')</em><div>' + escapeHtml(e.msg) + '</div>';
+      container.appendChild(div);
+    });
+  }
+
+  function addEntry() {
+    var name = document.getElementById('gbName').value.trim();
+    var msg = document.getElementById('gbMessage').value.trim();
+    if (!name || !msg) { alert('Wpisz imię i wiadomość.'); return false; }
+    var data = JSON.parse(localStorage.getItem('retro_guestbook') || '[]');
+    data.push({name: name, msg: msg, time: (new Date()).toLocaleString()});
+    localStorage.setItem('retro_guestbook', JSON.stringify(data));
+    document.getElementById('gbName').value = '';
+    document.getElementById('gbMessage').value = '';
+    renderEntries();
+    return false;
+  }
+
+  function escapeHtml(s) {
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  // inicjalizacja
+  renderEntries();
+</script>
+
+</body>
+</html>
